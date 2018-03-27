@@ -1,4 +1,4 @@
-"""Helper commands"""
+"""Helper functions and data loading"""
 
 import csv
 from app import app, db
