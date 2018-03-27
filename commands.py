@@ -1,6 +1,8 @@
+"""Helper commands"""
+
 import csv
 from app import app, db
-from models import Disaster
+from model import Disaster
 
 
 # Helper functions
@@ -80,4 +82,4 @@ def parser():
             db.session.commit()
 
             counter += 1
-            print 'Inserted {} items'.format(counter)
+            print ('Inserted {} items'.format(counter))
