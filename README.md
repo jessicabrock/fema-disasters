@@ -14,12 +14,15 @@
     $ pipenv shell
     $ export FLASK_APP=commands.py
     $ export FLASK_DEBUG=1
-    $ export SQLALCHEMY_DATABASE_URI=<database URI>
-    $ export MAPBOX_ACCESS_TOKEN=<mapbox api key>
+    $ export SQLALCHEMY_DATABASE_URI=
+    $ export MAPBOX_ACCESS_TOKEN=
 
-## Local Server
+## Developer Usage
 
-    $ gunicorn commands:app
+    pipenv install
 
-    You should see a url you can copy/paste into your web browser.
-    Example, http://127.0.0.1:8000
+    pipenv run flask initdb
+
+    pipenv run flask parser
+
+    pipenv run flask run

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Disasters</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="static/css/style.css"/>
+</head>
+<body>
+  <div id="filters">
+    {% include 'filters.html' %}
+  </div>
+  <div id='map'></div>
+  <script>
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+
+    var fyDeclared = getParameterByName('fyDeclared')
+    var incidentType = getParameterByName('incidentType')
+
+    // Change fill color based on incidentType
+    let fillColor
+    switch (incidentType) {
+      case 'Tornado':
+        fillColor = '#fefbf8'
+        break;
+      case 'Fire':
+        fillColor = '#901a00'
+        break;
+      case 'Flood':
+        fillColor = '#4d787b'
+        break;
+      case 'Snow':
+        fillColor = '#ffffff'
+        break;
+      default:
+        fillColor = '#088'
+        break;
+    }
+
+    mapboxgl.accessToken = "{{ mapbox_access_token }}";
+    var map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/jessicabrock/cjf6fx70d356m2rmv2i9z39gl',
+      center: [-100.1404268, 37.7505281],
+      zoom: 3
+    });
+
+   map.on('load', function() {
+
+      map.addSource('disaster', {
+        type: 'geojson',
+        data: '/geo.json?' + 'fyDeclared=' + fyDeclared + '&incidentType=' + incidentType
+      });
+
+      // Add layer here
+      map.addLayer({
+        id: 'main',
+        source: 'disaster',
+        type: 'fill',
+        layout: {
+
+        },
+        paint: {
+          'fill-color': fillColor,
+          'fill-outline-color': '#088',
+          'fill-opacity': 0.5,
+          'fill-translate-anchor': 'map'
+        }
+      })
+    });
+  </script>
+</body>
+</html>

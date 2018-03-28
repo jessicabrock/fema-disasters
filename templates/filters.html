@@ -1,0 +1,46 @@
+<form action="" method="GET">
+  <div class="field has-addons has-addons-centered">
+    <p class="control">
+        <input type="number" class="input" name="fyDeclared" min="1953" max="2018" required value="{{ request.args.fyDeclared }}" placeholder="1988">
+      </p>
+    <p class="control">
+      <span class="select">
+        <select name="incidentType" id="" required>
+          {% if request.args.incidentType %}
+          <option value="{{ request.args.incidentType}}" selected>{{ request.args.incidentType }}</option>
+            {{ request.args.incidentType}}
+          {% else %}
+            <option disabled selected>---</option>
+          {% endif %}
+          <option value="Chemical">Chemical</option>
+          <option value="Coastel Foam">Coastel Foam</option>
+          <option value="Dam/Levee Break">Dam/Levee Break</option>
+          <option value="Drought">Drought</option>
+          <option value="Earthquake">Earthquake</option>
+          <option value="Fire">Fire</option>
+          <option value="Fishing Losses">Fishing Losses</option>
+          <option value="Flood">Flood</option>
+          <option value="Freezing">Freezing</option>
+          <option value="Human Cause">Human Cause</option>
+          <option value="Hurricane">Hurricane</option>
+          <option value="Mud/Landslide">Mud/Landslide</option>
+          <option value="Other">Other</option>
+          <option value="Severe Ice Storm">Severe Ice Storm</option>
+          <option value="Sever Storm(s)">Sever Storm(s)</option>
+          <option value="Snow">Snow</option>
+          <option value="Terrorist">Terrorist</option>
+          <option value="Tornado">Tornado</option>
+          <option value="Toxic Substances">Toxic Substances</option>
+          <option value="Tsunami">Tsunami</option>
+          <option value="Typhoon">Typhoon</option>
+          <option value="Volcano">Volcano</option>
+        </select>
+      </span>
+    </p>
+    <p class="control">
+      <button class="button is-primary" type="submit">
+        GET
+      </button>
+    </p>
+  </div>
+</form>
