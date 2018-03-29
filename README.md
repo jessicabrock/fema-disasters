@@ -4,7 +4,7 @@
     Name: Fema-Disaster app
     Version: 1.0
     Developer: Jessica Brock, jessicabrock03@gmail.com
-    URL:
+    URL: https://disasterapp.herokuapp.com
 
 ## Installation
 

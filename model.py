@@ -30,3 +30,13 @@ class Disaster(db.Model):
 
     def __repr__(self):
         return "{}".format(self.state)
+
+
+    def example_data():
+        """Create some sample data for testing."""
+        disaster1 = Disaster(id=1, disasterNumber=null,ihProgramDeclared=null,iaProgramDeclared=null,paProgramDeclared=null,hmProgramDeclared=null,state='California',declarationDate=null,fyDeclared=1998,disasterType='DR',incidentType='Tornado',title=null,incidentBeginDate=null,incidentEndDate=null,disasterCloseOutDate=null,declaredCountyArea=null,placeCode=null,hash_=null,lastRefresh=null)
+        disaster2 = Disaster(id=2, disasterNumber=null,ihProgramDeclared=null,iaProgramDeclared=null,paProgramDeclared=null,hmProgramDeclared=null,state='California',declarationDate=null,fyDeclared=2004,disasterType='DR',incidentType='Flood',title=null,incidentBeginDate=null,incidentEndDate=null,disasterCloseOutDate=null,declaredCountyArea=null,placeCode=null,hash_=null,lastRefresh=null)
+        disaster3 = Disaster(id=3, disasterNumber=null,ihProgramDeclared=null,iaProgramDeclared=null,paProgramDeclared=null,hmProgramDeclared=null,state='California',declarationDate=null,fyDeclared=1994,disasterType='DR',incidentType='Earthquake',title=null,incidentBeginDate=null,incidentEndDate=null,disasterCloseOutDate=null,declaredCountyArea=null,placeCode=null,hash_=null,lastRefresh=null)
+
+        db.session.add_all([disaster1, disaster2, disaster3])
+        db.session.commit()
