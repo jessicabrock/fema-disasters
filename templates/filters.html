@@ -1,7 +1,7 @@
 <form action="" method="GET">
   <div class="field has-addons has-addons-centered">
     <p class="control">
-        <input type="number" class="input" name="fyDeclared" min="1953" max="2018" required value="{{ request.args.fyDeclared }}" placeholder="1988">
+        <input type="number" class="input" name="fyDeclared" min="1953" max={{CURRENT_YEAR}} required value="{{ request.args.fyDeclared }}" placeholder="1988">
       </p>
     <p class="control">
       <span class="select">

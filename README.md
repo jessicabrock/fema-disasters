@@ -8,10 +8,8 @@
 
 ## Installation
 
-    $ pip install pipenv
     $ cd <project name>
-    $ pipenv install
-    $ pipenv shell
+    $ export CURRENT_YEAR=$(date +'%Y')
     $ export FLASK_APP=commands.py
     $ export FLASK_DEBUG=1
     $ export SQLALCHEMY_DATABASE_URI=
@@ -19,7 +17,9 @@
 
 ## Developer Usage
 
-    pipenv install
+    $ pipenv install
+
+    $ pipenv shell
 
     pipenv run flask initdb
 
