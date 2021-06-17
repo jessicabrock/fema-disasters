@@ -1,5 +1,7 @@
 # Fema-Disaster application
 
+Reads disaster data provided from FEMA through a cvs file. User can select the year and disaster type they are looking for and the results will displays on map, using the Mapbox API.
+
 ## App Info
     Name: Fema-Disaster app
     Version: 1.0
